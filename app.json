@@ -14,16 +14,16 @@
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/images/android-icon-foreground.png",
-        "backgroundImage": "./assets/images/android-icon-background.png",
-        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+        "foregroundImage": "./assets/images/sca.jpeg",
+        "backgroundImage": "./assets/images/sca.jpeg",
+        "monochromeImage": "./assets/images/sca.jpeg"
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false
     },
     "web": {
       "output": "static",
-      "favicon": "./assets/images/favicon.png",
+      "favicon": "./assets/images/sca.jpeg",
       "manifest": {
         "name": "cd-app",
         "short_name": "cd-app",
@@ -33,7 +33,7 @@
           {
             "src": "./assets/images/sca.jpeg",
             "sizes": "192x192",
-            "type": "image/png"
+            "type": "image/jpeg"
           }
         ]
       }
@@ -43,7 +43,7 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
+          "image": "./assets/images/sca.jpeg",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff",
