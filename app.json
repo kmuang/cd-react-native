@@ -23,7 +23,20 @@
     },
     "web": {
       "output": "static",
-      "favicon": "./assets/images/sca.jpeg"
+      "favicon": "./assets/images/favicon.png",
+      "manifest": {
+        "name": "cd-app",
+        "short_name": "cd-app",
+        "start_url": ".",
+        "display": "standalone",
+        "icons": [
+          {
+            "src": "./assets/images/sca.jpeg",
+            "sizes": "192x192",
+            "type": "image/png"
+          }
+        ]
+      }
     },
     "plugins": [
       "expo-router",
