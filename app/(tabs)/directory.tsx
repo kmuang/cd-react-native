@@ -1,42 +1,42 @@
-import { useState, useMemo } from 'react';
+import { useMemo, useState } from "react";
 import {
-  StyleSheet,
-  ScrollView,
-  TextInput,
-  TouchableOpacity,
   Linking,
   Platform,
+  ScrollView,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
   View,
-} from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+} from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { IconSymbol } from '@/components/ui/icon-symbol';
+import { ThemedText } from "@/components/themed-text";
+import { ThemedView } from "@/components/themed-view";
+import { IconSymbol } from "@/components/ui/icon-symbol";
 import {
-  DIRECTORY_DATA,
   COMMUNITY_LEADERS,
+  DIRECTORY_DATA,
   type Household,
-} from '@/constants/directory';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+} from "@/constants/directory";
+import { Colors } from "@/constants/theme";
+import { useColorScheme } from "@/hooks/use-color-scheme";
 
 const CATEGORY_GROUPS = [
-  'St. Matthew',
-  'St. Mark',
-  'St. Luke',
-  'St. John',
-  'St. Paul',
-  'St. Joseph',
-  'St. Peter',
+  "St. Matthew",
+  "St. Mark",
+  "St. Luke",
+  "St. John",
+  "St. Paul",
+  "St. Joseph",
+  "St. Peter",
 ] as const;
 
-const ACCENT_LIGHT = '#2563EB'; // Modern blue
-const ACCENT_DARK = '#60A5FA';
-const CARD_BG_LIGHT = '#FFFFFF';
-const CARD_BG_DARK = '#1F2937';
-const SEARCH_BG_LIGHT = '#F3F4F6';
-const SEARCH_BG_DARK = '#374151';
+const ACCENT_LIGHT = "#2563EB"; // Modern blue
+const ACCENT_DARK = "#60A5FA";
+const CARD_BG_LIGHT = "#FFFFFF";
+const CARD_BG_DARK = "#1F2937";
+const SEARCH_BG_LIGHT = "#F3F4F6";
+const SEARCH_BG_DARK = "#374151";
 
 function GroupDropdown({
   group,
@@ -49,32 +49,33 @@ function GroupDropdown({
   households: Household[];
   isExpanded: boolean;
   onToggle: () => void;
-  colorScheme: 'light' | 'dark';
+  colorScheme: "light" | "dark";
 }) {
-  const dropdownBg =
-    colorScheme === 'dark' ? '#374151' : '#F9FAFB';
-  const iconColor = colorScheme === 'dark' ? Colors.dark.icon : Colors.light.icon;
+  const dropdownBg = colorScheme === "dark" ? "#374151" : "#F9FAFB";
+  const iconColor =
+    colorScheme === "dark" ? Colors.dark.icon : Colors.light.icon;
 
   return (
     <View style={styles.groupDropdown}>
       <TouchableOpacity
         style={[styles.groupHeader, { backgroundColor: dropdownBg }]}
         onPress={onToggle}
-        activeOpacity={0.7}>
+        activeOpacity={0.7}
+      >
         <IconSymbol
           name="chevron.right"
           size={20}
           color={iconColor}
           style={[
             styles.groupChevron,
-            { transform: [{ rotate: isExpanded ? '90deg' : '0deg' }] },
+            { transform: [{ rotate: isExpanded ? "90deg" : "0deg" }] },
           ]}
         />
         <ThemedText type="defaultSemiBold" style={styles.groupHeaderText}>
           {group}
         </ThemedText>
         <ThemedText style={styles.groupCount}>
-          {households.length} household{households.length !== 1 ? 's' : ''}
+          {households.length} household{households.length !== 1 ? "s" : ""}
         </ThemedText>
       </TouchableOpacity>
       {isExpanded && (
@@ -82,10 +83,10 @@ function GroupDropdown({
           style={[
             styles.groupContent,
             {
-              borderLeftColor:
-                colorScheme === 'dark' ? '#60A5FA' : '#2563EB',
+              borderLeftColor: colorScheme === "dark" ? "#60A5FA" : "#2563EB",
             },
-          ]}>
+          ]}
+        >
           {households.map((household) => (
             <View key={household.id} style={styles.cardWrapper}>
               <HouseholdCard household={household} />
@@ -99,17 +100,18 @@ function GroupDropdown({
 
 function HouseholdCard({ household }: { household: Household }) {
   const [expanded, setExpanded] = useState(false);
-  const colorScheme = useColorScheme() ?? 'light';
-  const accent = colorScheme === 'dark' ? ACCENT_DARK : ACCENT_LIGHT;
-  const cardBg = colorScheme === 'dark' ? CARD_BG_DARK : CARD_BG_LIGHT;
-  const iconColor = colorScheme === 'dark' ? Colors.dark.icon : Colors.light.icon;
+  const colorScheme = useColorScheme() ?? "light";
+  const accent = colorScheme === "dark" ? ACCENT_DARK : ACCENT_LIGHT;
+  const cardBg = colorScheme === "dark" ? CARD_BG_DARK : CARD_BG_LIGHT;
+  const iconColor =
+    colorScheme === "dark" ? Colors.dark.icon : Colors.light.icon;
 
   const fullAddress = [household.address, household.city, household.state]
     .filter(Boolean)
-    .join(', ');
+    .join(", ");
 
   const handlePhonePress = () => {
-    const num = household.phone.replace(/\D/g, '');
+    const num = household.phone.replace(/\D/g, "");
     if (num) Linking.openURL(`tel:${num}`);
   };
 
@@ -130,7 +132,7 @@ function HouseholdCard({ household }: { household: Household }) {
   };
 
   const cardBorder =
-    colorScheme === 'dark' ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)';
+    colorScheme === "dark" ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)";
 
   return (
     <TouchableOpacity
@@ -139,7 +141,8 @@ function HouseholdCard({ household }: { household: Household }) {
       style={[
         styles.card,
         { backgroundColor: cardBg, borderWidth: 1, borderColor: cardBorder },
-      ]}>
+      ]}
+    >
       <View style={styles.cardHeader}>
         <View style={styles.householdInfo}>
           {household.group && (
@@ -149,14 +152,18 @@ function HouseholdCard({ household }: { household: Household }) {
             {household.householdName}
           </ThemedText>
           <ThemedText style={styles.memberCount}>
-            {household.members.length} member{household.members.length !== 1 ? 's' : ''}
+            {household.members.length} member
+            {household.members.length !== 1 ? "s" : ""}
           </ThemedText>
         </View>
         <IconSymbol
           name="chevron.right"
           size={22}
           color={iconColor}
-          style={[styles.chevron, { transform: [{ rotate: expanded ? '90deg' : '0deg' }] }]}
+          style={[
+            styles.chevron,
+            { transform: [{ rotate: expanded ? "90deg" : "0deg" }] },
+          ]}
         />
       </View>
 
@@ -166,9 +173,12 @@ function HouseholdCard({ household }: { household: Household }) {
             styles.cardContent,
             {
               borderTopColor:
-                colorScheme === 'dark' ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.08)',
+                colorScheme === "dark"
+                  ? "rgba(255,255,255,0.1)"
+                  : "rgba(0,0,0,0.08)",
             },
-          ]}>
+          ]}
+        >
           <View style={styles.section}>
             <View style={styles.sectionHeader}>
               <IconSymbol name="person.2.fill" size={18} color={accent} />
@@ -189,23 +199,32 @@ function HouseholdCard({ household }: { household: Household }) {
           {fullAddress && (
             <TouchableOpacity
               onPress={handleAddressPress}
-              style={styles.contactRow}>
+              style={styles.contactRow}
+            >
               <IconSymbol name="mappin" size={18} color={accent} />
               <ThemedText style={styles.contactText}>{fullAddress}</ThemedText>
             </TouchableOpacity>
           )}
 
           {household.phone && (
-            <TouchableOpacity onPress={handlePhonePress} style={styles.contactRow}>
+            <TouchableOpacity
+              onPress={handlePhonePress}
+              style={styles.contactRow}
+            >
               <IconSymbol name="phone.fill" size={18} color={accent} />
               <ThemedText style={styles.contactText}>
-                {[household.phone, household.phoneAlt].filter(Boolean).join(' · ')}
+                {[household.phone, household.phoneAlt]
+                  .filter(Boolean)
+                  .join(" · ")}
               </ThemedText>
             </TouchableOpacity>
           )}
 
           {household.email && (
-            <TouchableOpacity onPress={handleEmailPress} style={styles.contactRow}>
+            <TouchableOpacity
+              onPress={handleEmailPress}
+              style={styles.contactRow}
+            >
               <IconSymbol name="envelope.fill" size={18} color={accent} />
               <ThemedText style={[styles.contactText, styles.link]}>
                 {household.email}
@@ -219,28 +238,28 @@ function HouseholdCard({ household }: { household: Household }) {
 }
 
 export default function DirectoryScreen() {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [expandedGroups, setExpandedGroups] = useState<Record<string, boolean>>(
     () =>
-      Object.fromEntries(
-        [...CATEGORY_GROUPS, 'N/A'].map((g) => [g, false])
-      )
+      Object.fromEntries([...CATEGORY_GROUPS, "N/A"].map((g) => [g, false])),
   );
 
   const toggleGroup = (group: string) => {
     setExpandedGroups((prev) => ({ ...prev, [group]: !prev[group] }));
   };
-  const colorScheme = useColorScheme() ?? 'light';
-  const searchBg = colorScheme === 'dark' ? SEARCH_BG_DARK : SEARCH_BG_LIGHT;
-  const textColor = colorScheme === 'dark' ? Colors.dark.text : Colors.light.text;
-  const iconColor = colorScheme === 'dark' ? Colors.dark.icon : Colors.light.icon;
+  const colorScheme = useColorScheme() ?? "light";
+  const searchBg = colorScheme === "dark" ? SEARCH_BG_DARK : SEARCH_BG_LIGHT;
+  const textColor =
+    colorScheme === "dark" ? Colors.dark.text : Colors.light.text;
+  const iconColor =
+    colorScheme === "dark" ? Colors.dark.icon : Colors.light.icon;
 
   const filteredHouseholds = useMemo(() => {
     const query = searchQuery.trim();
     if (!query) return DIRECTORY_DATA;
 
     const q = query.toLowerCase();
-    const qDigits = query.replace(/\D/g, '');
+    const qDigits = query.replace(/\D/g, "");
 
     return DIRECTORY_DATA.filter((h) => {
       // Match by household name
@@ -254,25 +273,28 @@ export default function DirectoryScreen() {
         }
       }
       // Match by address or city
-      if ((h.address && h.address.toLowerCase().includes(q)) ||
-          (h.city && h.city.toLowerCase().includes(q))) {
+      if (
+        (h.address && h.address.toLowerCase().includes(q)) ||
+        (h.city && h.city.toLowerCase().includes(q))
+      ) {
         return true;
       }
       // Match by phone (partial digits allowed)
       if (qDigits.length >= 2) {
-        const phoneDigits = (h.phone || '').replace(/\D/g, '');
-        const altDigits = (h.phoneAlt || '').replace(/\D/g, '');
+        const phoneDigits = (h.phone || "").replace(/\D/g, "");
+        const altDigits = (h.phoneAlt || "").replace(/\D/g, "");
         if (phoneDigits.includes(qDigits) || altDigits.includes(qDigits)) {
           return true;
         }
       }
-      if ((h.phone && h.phone.includes(query)) ||
-          (h.phoneAlt && h.phoneAlt.includes(query))) {
+      if (
+        (h.phone && h.phone.includes(query)) ||
+        (h.phoneAlt && h.phoneAlt.includes(query))
+      ) {
         return true;
       }
-      // Match by group or email
-      if ((h.group && h.group.toLowerCase().includes(q)) ||
-          (h.email && h.email.toLowerCase().includes(q))) {
+      // Match by group
+      if (h.group && h.group.toLowerCase().includes(q)) {
         return true;
       }
       return false;
@@ -281,8 +303,12 @@ export default function DirectoryScreen() {
 
   return (
     <SafeAreaView
-      style={[styles.container, { backgroundColor: Colors[colorScheme ?? 'light'].background }]}
-      edges={['top']}>
+      style={[
+        styles.container,
+        { backgroundColor: Colors[colorScheme ?? "light"].background },
+      ]}
+      edges={["top"]}
+    >
       <View style={styles.header}>
         <ThemedText type="title" style={styles.title}>
           Zomi Catholic Community
@@ -307,16 +333,20 @@ export default function DirectoryScreen() {
       <ScrollView
         style={styles.scrollView}
         contentContainerStyle={styles.scrollContent}
-        showsVerticalScrollIndicator={false}>
+        showsVerticalScrollIndicator={false}
+      >
         {COMMUNITY_LEADERS.length > 0 && (
           <View
             style={[
               styles.leadersSection,
-            {
-              backgroundColor:
-                colorScheme === 'dark' ? 'rgba(96,165,250,0.15)' : 'rgba(37,99,235,0.08)',
-            },
-            ]}>
+              {
+                backgroundColor:
+                  colorScheme === "dark"
+                    ? "rgba(96,165,250,0.15)"
+                    : "rgba(37,99,235,0.08)",
+              },
+            ]}
+          >
             <ThemedText type="defaultSemiBold" style={styles.leadersTitle}>
               Community Leaders
             </ThemedText>
@@ -331,15 +361,17 @@ export default function DirectoryScreen() {
         {filteredHouseholds.length === 0 ? (
           <ThemedView style={styles.emptyState}>
             <IconSymbol name="magnifyingglass" size={48} color={iconColor} />
-            <ThemedText style={styles.emptyText}>No households found</ThemedText>
+            <ThemedText style={styles.emptyText}>
+              No households found
+            </ThemedText>
             <ThemedText style={styles.emptySubtext}>
               Try a different search term
             </ThemedText>
           </ThemedView>
         ) : (
-          [...CATEGORY_GROUPS, 'N/A'].map((group) => {
+          [...CATEGORY_GROUPS, "N/A"].map((group) => {
             const householdsInGroup = filteredHouseholds.filter(
-              (h) => h.group === group
+              (h) => h.group === group,
             );
             const hasSearch = searchQuery.trim().length > 0;
             const shouldExpand = hasSearch
@@ -352,12 +384,17 @@ export default function DirectoryScreen() {
                 households={householdsInGroup}
                 isExpanded={shouldExpand}
                 onToggle={() => toggleGroup(group)}
-                colorScheme={colorScheme ?? 'light'}
+                colorScheme={colorScheme ?? "light"}
               />
             );
           })
         )}
       </ScrollView>
+      <View style={styles.footer}>
+        <ThemedText style={styles.footerText}>
+          Developed by Noel Muang
+        </ThemedText>
+      </View>
     </SafeAreaView>
   );
 }
@@ -381,8 +418,8 @@ const styles = StyleSheet.create({
     letterSpacing: 0.2,
   },
   searchContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     marginHorizontal: 20,
     paddingHorizontal: 16,
     paddingVertical: 14,
@@ -405,16 +442,16 @@ const styles = StyleSheet.create({
   card: {
     borderRadius: 12,
     padding: 18,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.04,
     shadowRadius: 6,
     elevation: 2,
   },
   cardHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
   },
   householdInfo: {
     flex: 1,
@@ -422,7 +459,7 @@ const styles = StyleSheet.create({
   householdName: {
     fontSize: 17,
     marginBottom: 4,
-    fontWeight: '600',
+    fontWeight: "600",
   },
   memberCount: {
     fontSize: 13,
@@ -440,14 +477,14 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   sectionHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     gap: 8,
     marginBottom: 10,
   },
   sectionTitle: {
     fontSize: 14,
-    textTransform: 'uppercase',
+    textTransform: "uppercase",
     letterSpacing: 0.5,
     opacity: 0.8,
   },
@@ -461,8 +498,8 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   contactRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     gap: 10,
     marginBottom: 10,
   },
@@ -472,17 +509,17 @@ const styles = StyleSheet.create({
     lineHeight: 22,
   },
   link: {
-    color: '#2563EB',
+    color: "#2563EB",
   },
   emptyState: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     paddingVertical: 60,
     gap: 12,
   },
   emptyText: {
     fontSize: 18,
-    fontWeight: '600',
+    fontWeight: "600",
   },
   emptySubtext: {
     fontSize: 15,
@@ -495,7 +532,7 @@ const styles = StyleSheet.create({
     fontSize: 11,
     opacity: 0.7,
     marginBottom: 4,
-    textTransform: 'uppercase',
+    textTransform: "uppercase",
     letterSpacing: 0.8,
   },
   leadersSection: {
@@ -509,7 +546,7 @@ const styles = StyleSheet.create({
     letterSpacing: 0.3,
   },
   leaderRow: {
-    flexDirection: 'row',
+    flexDirection: "row",
     gap: 8,
     marginBottom: 6,
   },
@@ -522,8 +559,8 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   groupHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     paddingVertical: 16,
     paddingHorizontal: 18,
     borderRadius: 10,
@@ -535,7 +572,7 @@ const styles = StyleSheet.create({
   groupHeaderText: {
     flex: 1,
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: "600",
   },
   groupCount: {
     fontSize: 13,
@@ -546,5 +583,15 @@ const styles = StyleSheet.create({
     marginLeft: 12,
     paddingLeft: 12,
     borderLeftWidth: 3,
+  },
+  footer: {
+    alignItems: "center",
+    paddingVertical: 20,
+    paddingBottom: 30,
+  },
+  footerText: {
+    fontSize: 14,
+    color: "#333333",
+    textAlign: "center",
   },
 });
