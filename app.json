@@ -52,12 +52,12 @@
           },
           {
             "src": "./assets/images/catholic.png",
-            "sizes": "192x192",
+            "sizes": "32x32",
             "type": "image/png"
           },
           {
             "src": "./assets/images/catholic.png",
-            "sizes": "512x512",
+            "sizes": "16x16",
             "type": "image/png"
           }
         ]
