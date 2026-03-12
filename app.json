@@ -32,7 +32,7 @@
         "icons": [
           {
             "src": "./assets/images/sca.png",
-            "sizes": "192x192",
+            "sizes": "72x72",
             "type": "image/png"
           }
         ]
