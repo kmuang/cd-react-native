@@ -35,6 +35,21 @@
             "sizes": "57x57",
             "type": "image/png"
           }
+          {
+            "src": "./assets/images/sca.png",
+            "sizes": "72x72",
+            "type": "image/png"
+          },
+          {
+            "src": "./assets/images/sca.png",
+            "sizes": "96x96",
+            "type": "image/png"
+          },
+          {
+            "src": "./assets/images/sca.png",
+            "sizes": "144x144",
+            "type": "image/png"
+          }
         ]
       }
     },
