@@ -4,7 +4,7 @@
     "slug": "cd-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/sca.jpeg",
+    "icon": "./assets/images/sca.png",
     "scheme": "cdapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -14,16 +14,16 @@
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/images/sca.jpeg",
-        "backgroundImage": "./assets/images/sca.jpeg",
-        "monochromeImage": "./assets/images/sca.jpeg"
+        "foregroundImage": "./assets/images/sca.png",
+        "backgroundImage": "./assets/images/sca.png",
+        "monochromeImage": "./assets/images/sca.png"
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false
     },
     "web": {
       "output": "static",
-      "favicon": "./assets/images/sca.jpeg",
+      "favicon": "./assets/images/sca.png",
       "manifest": {
         "name": "cd-app",
         "short_name": "cd-app",
@@ -31,9 +31,9 @@
         "display": "standalone",
         "icons": [
           {
-            "src": "./assets/images/sca.jpeg",
+            "src": "./assets/images/sca.png",
             "sizes": "192x192",
-            "type": "image/jpeg"
+            "type": "image/png"
           }
         ]
       }
@@ -43,7 +43,7 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/sca.jpeg",
+          "image": "./assets/images/sca.png",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff",
