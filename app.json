@@ -4,7 +4,7 @@
     "slug": "cd-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/sca.png",
+    "icon": "./assets/images/catholic.png",
     "scheme": "cdapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -14,16 +14,16 @@
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/images/sca.png",
-        "backgroundImage": "./assets/images/sca.png",
-        "monochromeImage": "./assets/images/sca.png"
+        "foregroundImage": "./assets/images/catholic.png",
+        "backgroundImage": "./assets/images/catholic.png",
+        "monochromeImage": "./assets/images/catholic.png"
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false
     },
     "web": {
       "output": "static",
-      "favicon": "./assets/images/sca.png",
+      "favicon": "./assets/images/catholic.png",
       "manifest": {
         "name": "cd-app",
         "short_name": "cd-app",
@@ -31,32 +31,32 @@
         "display": "standalone",
         "icons": [
           {
-            "src": "./assets/images/sca.png",
+            "src": "./assets/images/catholic.png",
             "sizes": "57x57",
             "type": "image/png"
-          }
+          },
           {
-            "src": "./assets/images/sca.png",
+            "src": "./assets/images/catholic.png",
             "sizes": "72x72",
             "type": "image/png"
           },
           {
-            "src": "./assets/images/sca.png",
+            "src": "./assets/images/catholic.png",
             "sizes": "96x96",
             "type": "image/png"
           },
           {
-            "src": "./assets/images/sca.png",
+            "src": "./assets/images/catholic.png",
             "sizes": "144x144",
             "type": "image/png"
           },
           {
-            "src": "./assets/images/sca.png",
+            "src": "./assets/images/catholic.png",
             "sizes": "192x192",
             "type": "image/png"
           },
           {
-            "src": "./assets/images/sca.png",
+            "src": "./assets/images/catholic.png",
             "sizes": "512x512",
             "type": "image/png"
           }
@@ -68,7 +68,7 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/sca.png",
+          "image": "./assets/images/catholic.png",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff",
