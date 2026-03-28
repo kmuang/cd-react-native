@@ -1,0 +1,90 @@
+{
+  "expo": {
+    "name": "cd-app",
+    "slug": "cd-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/catholic.png",
+    "scheme": "cdapp",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/catholic.png",
+        "backgroundColor": "#ffffff"
+      },
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "output": "static",
+      "favicon": "./assets/images/catholic.png",
+      "manifest": {
+        "name": "Zomi Catholic Community",
+        "short_name": "ZCC",
+        "description": "Zomi Catholic Community Parish Directory",
+        "start_url": ".",
+        "display": "standalone",
+        "orientation": "portrait",
+        "theme_color": "#2563EB",
+        "background_color": "#ffffff",
+        "icons": [
+          {
+            "src": "./assets/images/catholic.png",
+            "sizes": "48x48",
+            "type": "image/png"
+          },
+          {
+            "src": "./assets/images/catholic.png",
+            "sizes": "72x72",
+            "type": "image/png"
+          },
+          {
+            "src": "./assets/images/catholic.png",
+            "sizes": "96x96",
+            "type": "image/png"
+          },
+          {
+            "src": "./assets/images/catholic.png",
+            "sizes": "144x144",
+            "type": "image/png"
+          },
+          {
+            "src": "./assets/images/catholic.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+          },
+          {
+            "src": "./assets/images/catholic.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+          }
+        ]
+      }
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/catholic.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff",
+          "dark": {
+            "backgroundColor": "#000000"
+          }
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    }
+  }
+}
