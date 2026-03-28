@@ -1,0 +1,86 @@
+{
+  "expo": {
+    "name": "cd-app",
+    "slug": "cd-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/catholic.png",
+    "scheme": "cdapp",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/images/catholic.png",
+        "backgroundImage": "./assets/images/catholic.png",
+        "monochromeImage": "./assets/images/catholic.png"
+      },
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "output": "static",
+      "favicon": "./assets/images/catholic.png",
+      "manifest": {
+        "name": "cd-app",
+        "short_name": "cd-app",
+        "start_url": ".",
+        "display": "standalone",
+        "icons": [
+          {
+            "src": "./assets/images/catholic.png",
+            "sizes": "57x57",
+            "type": "image/png"
+          },
+          {
+            "src": "./assets/images/catholic.png",
+            "sizes": "72x72",
+            "type": "image/png"
+          },
+          {
+            "src": "./assets/images/catholic.png",
+            "sizes": "96x96",
+            "type": "image/png"
+          },
+          {
+            "src": "./assets/images/catholic.png",
+            "sizes": "144x144",
+            "type": "image/png"
+          },
+          {
+            "src": "./assets/images/catholic.png",
+            "sizes": "32x32",
+            "type": "image/png"
+          },
+          {
+            "src": "./assets/images/catholic.png",
+            "sizes": "16x16",
+            "type": "image/png"
+          }
+        ]
+      }
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/catholic.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff",
+          "dark": {
+            "backgroundColor": "#000000"
+          }
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    }
+  }
+}
